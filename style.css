@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #80ea66 0%, #4ba254fc 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.title {
+    color: rgba(255, 255, 255, 0.985);
+    font-size: 3.2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+}
+
+.timer-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 35px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Time Input Section */
+.input-section {
+    margin-bottom: 30px;
+}
+
+.time-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    gap: 15px;
+}
+
+.input-group {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.input-group label {
+    display: block;
+    color: white;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.input-group input:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Control Buttons */
+.controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    min-width: 100px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#startBtn {
+    background: #4c63af;
+    color: white;
+}
+
+#startBtn:hover {
+    background: #45a049;
+}
+
+#pauseBtn {
+    background: #ff9800;
+    color: white;
+}
+
+#pauseBtn:hover {
+    background: #e68900;
+}
+
+#pauseBtn:disabled {
+    background: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#resetBtn {
+    background: #f44336;
+    color: white;
+}
+
+#resetBtn:hover {
+    background: #da190b;
+}
+
+/* Display Section */
+.display-section {
+    text-align: center;
+}
+
+.time-display {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.time-display span {
+    font-size: 4.5rem;
+    font-weight: bold;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    min-width: 60px;
+    display: inline-block;
+}
+
+.status {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* Running Animation */
+.running .time-display {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 20px rgba(76, 175, 80, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(76, 175, 80, 0.8); }
+    100% { box-shadow: 0 0 20px rgba(76, 175, 80, 0.5); }
+}
+
+/* Finished State */
+.finished .time-display {
+    background: rgba(244, 67, 54, 0.3);
+    border-color: #ebf436;
+}
+
+.finished .status {
+    color: #f44336;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .title { font-size: 2.5rem; }
+    .time-inputs { flex-direction: column; gap: 10px; }
+    .input-group { padding: 12px; }
+    .time-display span { font-size: 3rem; }
+    .controls { flex-direction: column; align-items: center; }
+    button { width: 100%; margin-bottom: 10px; }
+    .timer-container { padding: 25px; }
+}

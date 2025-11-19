@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title"> Welcome to our Countdown Timer!</h1>
+
+        <div class="timer-container">
+            <!-- Time Input Section -->
+            <div class="input-section">
+                <div class="time-inputs">
+                    <div class="input-group">
+                        <label for="hours">Hours</label>
+                        <input type="number" id="hours" min="0" max="99" value="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="minutes">Minutes</label>
+                        <input type="number" id="minutes" min="0" max="59" value="25">
+                    </div>
+                    <div class="input-group">
+                        <label for="seconds">Seconds</label>
+                        <input type="number" id="seconds" min="0" max="59" value="0">
+                    </div>
+                </div>
+                <div class="controls">
+                    <button onclick="startTimer()" id="startBtn">▶️ It's Time to Start</button>
+                    <button onclick="pauseTimer()" id="pauseBtn" disabled>⏸️ It's Time to Pause</button>
+                    <button onclick="resetTimer()">🔄It's Time to Reset</button>
+                </div>
+            </div>
+
+            <!-- Display Section -->
+            <div class="display-section">
+                <div class="time-display" id="timeDisplay">
+                    <span id="displayHours">00</span>:
+                    <span id="displayMinutes">25</span>:
+                    <span id="displaySeconds">00</span>
+                </div>
+                <div class="status" id="status">Ready to start!</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
